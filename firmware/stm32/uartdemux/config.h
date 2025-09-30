@@ -13,7 +13,8 @@
 #define N_LEDS_PER_STRIP (264)
 #endif
 
-#define FOREACH_PIN(X) X(0) X(1) X(2) X(3) X(4)
+//#define FOREACH_PIN(X) X(0) X(1) X(2) X(3) X(4)
+#define FOREACH_PIN(X) X(4) X(3) X(2) X(1) X(0)
 #define STRIP_MASK (0x1f)
 
 #define UART_IN_BAUDRATE (4800000)
