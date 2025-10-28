@@ -59,7 +59,7 @@ def parse_formdata( req ):
             end = n
         eq = form_data.find(b'=', start)
         if eq != -1:
-            result[form_data[start:eq].decode('utf-8')] = urldecode(form_data[eq+1:end]).decode('utf-8')
+            result[form_data[start:eq].decode('utf-8')] = querydecode(form_data[eq+1:end]).decode('utf-8')
 
     return result
 
