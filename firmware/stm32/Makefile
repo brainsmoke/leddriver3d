@@ -37,6 +37,11 @@ WS2801PAR_HEADERS=ws2801par/ws2801par.h common/util.h common/m0delay.S
 WS2801PAR_SRCS=ws2801par/ws2801par.c ws2801par/ws2801par_bitbang.S common/util.c $(STARTUP_SRC)
 WS2801PAR_FLAGS=-I ws2801par
 
+WS2801PAR_ORIG_ELF=ws2801par_orig/ws2801par.elf
+WS2801PAR_ORIG_HEADERS=ws2801par_orig/ws2801par.h common/util.h common/m0delay.S
+WS2801PAR_ORIG_SRCS=ws2801par_orig/ws2801par.c ws2801par_orig/ws2801par_bitbang.S common/util.c $(STARTUP_SRC)
+WS2801PAR_ORIG_FLAGS=-I ws2801par_orig
+
 TIMING_EXPERIMENT_ELF=timing_experiment/timing_experiment.elf
 TIMING_EXPERIMENT_HEADERS=timing_experiment/timing_experiment.h common/m0delay.S
 TIMING_EXPERIMENT_SRCS=timing_experiment/timing_experiment.c timing_experiment/timing_experiment.S $(STARTUP_SRC)
@@ -103,6 +108,7 @@ ELFS=                        \
 	$(RELAYBALL_ELF)         \
 	$(UARTBALL16_ELF)        \
 	$(WS2801PAR_ELF)         \
+	$(WS2801PAR_ORIG_ELF)    \
 	$(WS2812_DMA16_ELF)      \
 	$(UARTRELAY_ELF)         \
 	$(UARTDEMUX_ELF)         \
@@ -157,6 +163,9 @@ $(UARTBALL16_ELF): $(UARTBALL16_SRCS) $(LINKER_SCRIPT) $(UARTBALL16_HEADERS)
 
 $(WS2801PAR_ELF): $(WS2801PAR_SRCS) $(LINKER_SCRIPT_072) $(WS2801PAR_HEADERS)
 	$(GCC) $(CFLAGS) $(LDFLAGS_072) $(WS2801PAR_FLAGS) $(WS2801PAR_SRCS) -o $@
+
+$(WS2801PAR_ORIG_ELF): $(WS2801PAR_ORIG_SRCS) $(LINKER_SCRIPT_072) $(WS2801PAR_ORIG_HEADERS)
+	$(GCC) $(CFLAGS) $(LDFLAGS_072) $(WS2801PAR_ORIG_FLAGS) $(WS2801PAR_ORIG_SRCS) -o $@
 
 $(WS2812_DMA16_ELF): $(WS2812_DMA16_SRCS) $(LINKER_SCRIPT_030CC) $(WS2812_DMA16_HEADERS)
 	$(GCC) $(CFLAGS) $(LDFLAGS_030CC) $(WS2812_DMA16_FLAGS) $(WS2812_DMA16_SRCS) -o $@
