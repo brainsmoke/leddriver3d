@@ -44,9 +44,9 @@ Input:
 
 * PA10: UART RX, 1MBaud (In my case, written to by one the esp32's UARTs)
 
-The pinout on the esp32leddriver board (v4.0, with integrated level shifters):
+The pinout on the leddriver3d board (v4.0, with integrated level shifters):
 
-<img src="/img/obegraensad_driver_wiring.jpg" width="640" alt="photo of pinout on the esp32leddriver board (v4.0)">
+<img src="/img/obegraensad_driver_wiring.jpg" width="640" alt="photo of pinout on the leddriver3d board (v4.0)">
 
 ## Protocol to the STM32 driver:
 
