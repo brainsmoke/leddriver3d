@@ -18,11 +18,11 @@
          ||
      .--------.
      |  usb   |
-     |   to   |
-     | serial | 
-     '--------'
-         ||
-   .--------------.                               _____________.--
+     |   to   |  unified codebase       project specific firmware
+     | serial |    /                            \
+     '--------'   /                              \
+         ||      /   standardized protocol        \
+   .--------------.            |                  _____________.--
    |  ESP32-D0WD  |          (UART)              |             |-- multiple LED strands
    |   8M PSRAM   |-- 16bit/color LED frames --> |  STM32F0XX  |-- (temporal dithered)
    |  16M FLASH   |                              |_____________|--
