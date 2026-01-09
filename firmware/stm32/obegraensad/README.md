@@ -6,7 +6,7 @@
 * (Only) desolder the data-out to data-in wires connecting the panels (the potting compound can be easily removed with some isopropanol)
 * All signals to the panel need to be boosted to 5V (for example using a 74HCT245)
 * Leave the VCC/GND/CLK/Latch/Not-output-enable wires intact
-* Connect the data-in pins to the esp32leddriver board (or another board with an stm32f0xx running this firmware)
+* Connect the data-in pins to the leddriver3d board (or another board with an stm32f0xx running this firmware)
 * Add ground wires next to the data wires for signal integrity
 * The attached USB cable is power-only, but can be replaced
 * The side-button is accessible via a pad on R5 on the bottom panel, it is pulled to ground when pressed.

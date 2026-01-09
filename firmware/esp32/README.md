@@ -37,7 +37,7 @@ For spheres other than the default 'greatcircles', replace `tools/flash.sh` with
 
 # should be correct, but not tested from a clean VM
 
-git clone https://github.com/brainsmoke/esp32leddriver
+git clone https://github.com/brainsmoke/leddriver3d
 
 # ESP-IDF
 git clone -b v4.4.3 --recursive https://github.com/espressif/esp-idf.git
@@ -48,7 +48,7 @@ git clone https://github.com/brainsmoke/micropython -b leddriver-post-1.19
 (cd micropython/ports/esp32 ; make submodules)
 
 # Edit setenv.sh to set the correct build directories:
-cd esp32leddriver/firmware/esp32
+cd leddriver3d/firmware/esp32
 "$EDITOR" ./tools/setenv.sh
 
 ./tools/domake.sh
