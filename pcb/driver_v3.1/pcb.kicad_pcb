@@ -164,7 +164,7 @@
 			(at 0 -2.33 90)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "20f54f8b-06c2-4a9e-bd02-f5f96bb1afea")
+			(uuid "1b840822-1b0b-4f7a-adfd-ddd4f54217c2")
 			(effects
 				(font
 					(size 1 1)
@@ -175,7 +175,7 @@
 		(property "Value" "Conn_01x08_Male"
 			(at 0 20.11 90)
 			(layer "F.Fab")
-			(uuid "38b49cc8-64ea-464b-95d8-6ca31844a424")
+			(uuid "eaf82cdd-8221-45ea-90f7-2f140e972c7e")
 			(effects
 				(font
 					(size 1 1)
@@ -187,7 +187,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "b8e3ba22-13a9-4c35-a580-9d7eeeca3227")
+			(uuid "7c56857f-3fe5-4605-afc9-3347c5136a7a")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -199,7 +199,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "3f2cf5d8-0d5e-4350-8c2c-30125349d8e5")
+			(uuid "e6206d5a-26fb-4f2a-a483-f6ff51ea5e57")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -211,7 +211,7 @@
 		(path "/00000000-0000-0000-0000-00005ef3bfb6")
 		(sheetname "/")
 		(sheetfile "pcb.kicad_sch")
-		(attr through_hole)
+		(attr through_hole dnp)
 		(pad "1" thru_hole circle
 			(at 0 -8.89 90)
 			(size 1.7 1.7)
@@ -316,7 +316,7 @@
 			(at 0 -2.33 90)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "6ef30f58-1c38-4112-9d24-f242623b85b1")
+			(uuid "650e3c5a-59d1-471f-ac92-29d68e8316b3")
 			(effects
 				(font
 					(size 1 1)
@@ -327,7 +327,7 @@
 		(property "Value" "Conn_01x04_Male"
 			(at 0 9.95 90)
 			(layer "F.Fab")
-			(uuid "7c1b639e-a22f-44c4-8d05-a1d01f9b7949")
+			(uuid "148e0c79-2c07-4f10-aa31-a85e566b0c24")
 			(effects
 				(font
 					(size 1 1)
@@ -339,7 +339,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "5f5f1738-c331-4534-b583-6c4a5221d21d")
+			(uuid "18bd903f-34bd-4afa-811c-f75f9469bf8c")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -351,7 +351,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "7367d99a-2a4b-4a8f-801f-5c2bf2d80058")
+			(uuid "26b861fb-b612-429c-83c2-2e15e85f6288")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -363,7 +363,7 @@
 		(path "/00000000-0000-0000-0000-00005ef72b41")
 		(sheetname "/")
 		(sheetfile "pcb.kicad_sch")
-		(attr through_hole)
+		(attr through_hole dnp)
 		(fp_text user "${REFERENCE}"
 			(at 0 3.81 180)
 			(layer "F.Fab")
@@ -431,7 +431,7 @@
 			(at 0 -2.33 0)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "7f914a82-2e7b-42a4-926e-2ad71f827037")
+			(uuid "9f09cf5d-0323-490e-8358-54878779050f")
 			(effects
 				(font
 					(size 1 1)
@@ -442,7 +442,7 @@
 		(property "Value" "Conn_01x02_Male"
 			(at 0 4.87 0)
 			(layer "F.Fab")
-			(uuid "05f4b1bf-c503-4429-9772-dc433c1b8c35")
+			(uuid "b24bb2eb-c567-4161-92ad-1b84cb39316e")
 			(effects
 				(font
 					(size 1 1)
@@ -454,7 +454,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "650827f1-af49-47da-9caa-7239cbb646aa")
+			(uuid "8b584f87-8042-47b0-8dbc-06dc8a654eee")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -466,7 +466,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "6fcf12ed-180d-4c48-8026-8e8461f899cf")
+			(uuid "e18c4f21-45ac-4533-9b2d-90abee22c5d5")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -478,7 +478,7 @@
 		(path "/00000000-0000-0000-0000-00005eff6fe7")
 		(sheetname "/")
 		(sheetfile "pcb.kicad_sch")
-		(attr through_hole)
+		(attr through_hole dnp)
 		(fp_text user "${REFERENCE}"
 			(at 0 1.270001 90)
 			(layer "F.Fab")
@@ -524,7 +524,7 @@
 			(at 0 -3.3 90)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "e496c189-1416-4e42-b6f3-a84d09b64331")
+			(uuid "15dcf365-89d5-4152-a746-2f121caf46ad")
 			(effects
 				(font
 					(size 1 1)
@@ -535,7 +535,7 @@
 		(property "Value" "CP2104"
 			(at 0 3.3 90)
 			(layer "F.Fab")
-			(uuid "054c9640-f286-44d9-8378-b320ab3990cc")
+			(uuid "f79f4daa-a493-4846-8649-9060b58b5ca6")
 			(effects
 				(font
 					(size 1 1)
@@ -547,7 +547,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "05b5b862-0aa4-47b2-9275-53e39fe1c33a")
+			(uuid "2332d345-c558-49e8-90dc-842a0b2d2a6a")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -559,7 +559,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "99b3274a-731c-4268-83c6-1976579a3515")
+			(uuid "3753e351-7efe-43c5-b933-529f95aeaf14")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -908,7 +908,7 @@
 			(at 0.02 -0.05 0)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "304e0d58-7aaa-4ba6-a08c-dee4dcc27911")
+			(uuid "674f6a3b-443a-443e-9918-72a556d06440")
 			(effects
 				(font
 					(size 1 1)
@@ -919,7 +919,7 @@
 		(property "Value" "USB_C_Receptacle_USB2.0"
 			(at 0 5.1 90)
 			(layer "F.Fab")
-			(uuid "bf74f74d-f157-4bee-9b71-d23d44b00e8e")
+			(uuid "5943439f-ca25-4c54-af7b-fd0ef5b12942")
 			(effects
 				(font
 					(size 1 1)
@@ -931,7 +931,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "50be7e9e-5a4c-4b22-837d-cfa2e36520ed")
+			(uuid "9aa35ec6-b01b-47c0-87d5-9e43379b589b")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -943,10 +943,23 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "1d55fb5c-a251-4e38-bf2e-86dcb659b410")
+			(uuid "857d390a-4b74-41d3-8036-b53718a606c3")
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C165948"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "101db1c6-3697-4045-a856-fdf226e4b9ae")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -5278,7 +5291,7 @@
 			(at 0 -4.2 90)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "e12d6269-4cc0-4b31-bb68-389ae915a58e")
+			(uuid "5e4f14cd-44fc-4f22-bc3d-c10e1b7b0e5b")
 			(effects
 				(font
 					(size 1 1)
@@ -5289,7 +5302,7 @@
 		(property "Value" "STM32F030F4Px"
 			(at 0 4.2 90)
 			(layer "F.Fab")
-			(uuid "2f5b795b-284a-4a68-830f-d21cee9aad89")
+			(uuid "62fd53c5-15da-43e7-9c92-efbe3e9e7fd3")
 			(effects
 				(font
 					(size 1 1)
@@ -5301,7 +5314,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "b59cd4a9-5a61-4362-8430-87638355fcbf")
+			(uuid "d6877644-12c9-4103-a460-a3b159cf172c")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5313,10 +5326,23 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "d864d6db-d526-453f-9f00-098794d30e4a")
+			(uuid "6dda4257-80e0-4888-8ae1-676823ed51dc")
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C89040"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "89e2c0ca-9517-4ddb-9849-c24e31112d54")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -6253,7 +6279,7 @@
 			(at -6.025 17.135 270)
 			(layer "B.SilkS")
 			(hide yes)
-			(uuid "6ea2ba92-d01b-42c8-bcbb-888de40d2bd8")
+			(uuid "70437f03-1e4a-4b1f-824e-4379762e24c9")
 			(effects
 				(font
 					(size 1 1)
@@ -6265,7 +6291,7 @@
 		(property "Value" "ESP32-WROVER"
 			(at 0.895 -16.665 270)
 			(layer "B.Fab")
-			(uuid "4c21b78a-12b2-47eb-b6c2-1b683ce0590d")
+			(uuid "5d331613-3fcd-4228-9feb-4323e2cadfac")
 			(effects
 				(font
 					(size 1 1)
@@ -6278,7 +6304,7 @@
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "8631499a-60f0-4e88-bf6d-0522dc7f9b87")
+			(uuid "d607b822-d689-43d7-badb-d4efdd3ce878")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6290,7 +6316,7 @@
 			(at 0 0 270)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "bfe810b8-173f-4f0f-a235-1b62df1ec3be")
+			(uuid "efaed9fb-d729-4061-b829-2c4809ad0ab6")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6301,7 +6327,7 @@
 		(path "/00000000-0000-0000-0000-00005ef3b8f9")
 		(sheetname "/")
 		(sheetfile "pcb.kicad_sch")
-		(attr through_hole)
+		(attr through_hole dnp)
 		(fp_poly
 			(pts
 				(xy -3.5 3.26) (xy -2.17 3.26) (xy -2.17 1.93) (xy -3.5 1.93)

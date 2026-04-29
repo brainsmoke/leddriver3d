@@ -13132,7 +13132,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "00000000-0000-0000-0000-00005ef3b8f9")
 		(property "Reference" "U1"
 			(at 89.535 90.5002 0)
@@ -15397,6 +15397,15 @@
 				)
 			)
 		)
+		(property "LCSC" "C81787"
+			(at 205.74 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "7"
 			(uuid "c65a8151-077f-4e4f-afea-ef2b29fe4df4")
 		)
@@ -15557,7 +15566,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "00000000-0000-0000-0000-0000653f1e13")
 		(property "Reference" "JP2"
 			(at 345.44 35.941 0)
@@ -15623,7 +15632,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "00000000-0000-0000-0000-00006541eb44")
 		(property "Reference" "JP1"
 			(at 345.44 29.337 0)
@@ -15689,7 +15698,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "00000000-0000-0000-0000-00006544679a")
 		(property "Reference" "J4"
 			(at 264.8712 162.1028 0)
@@ -15824,7 +15833,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "00000000-0000-0000-0000-0000654dd7a9")
 		(property "Reference" "J6"
 			(at 31.1912 79.5528 0)
@@ -15956,7 +15965,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "00000000-0000-0000-0000-0000656f2c44")
 		(property "Reference" "J3"
 			(at 143.7132 151.6126 0)
@@ -16064,7 +16073,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "00000000-0000-0000-0000-000065745bd9")
 		(property "Reference" "J1"
 			(at 128.4732 151.6126 0)
@@ -16236,7 +16245,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "00000000-0000-0000-0000-000065897b30")
 		(property "Reference" "J5"
 			(at 162.7632 151.6126 0)
@@ -16354,7 +16363,7 @@
 				)
 			)
 		)
-		(property "Value" "74HC245"
+		(property "Value" "74HCT245"
 			(at 346.71 56.134 0)
 			(effects
 				(font
@@ -16386,6 +16395,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C5980"
+			(at 346.71 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -16538,7 +16556,7 @@
 				)
 			)
 		)
-		(property "Value" "74HC245"
+		(property "Value" "74HCT245"
 			(at 415.29 57.404 0)
 			(effects
 				(font
@@ -16570,6 +16588,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C5980"
+			(at 415.29 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -17922,7 +17949,7 @@
 				)
 			)
 		)
-		(property "Value" "74HC245"
+		(property "Value" "74HCT245"
 			(at 346.71 125.984 0)
 			(effects
 				(font
@@ -17954,6 +17981,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C5980"
+			(at 346.71 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -18706,7 +18742,7 @@
 				)
 			)
 		)
-		(property "Value" "74HC245"
+		(property "Value" "74HCT245"
 			(at 416.56 122.174 0)
 			(effects
 				(font
@@ -18738,6 +18774,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C5980"
+			(at 416.56 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -20089,6 +20134,15 @@
 				)
 			)
 		)
+		(property "LCSC" "C81000"
+			(at 113.03 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "83e5bb53-71a9-4d43-843f-d58de3a410ae")
 		)
@@ -20443,7 +20497,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "00000000-0000-0000-0000-000066a76f23")
 		(property "Reference" "J7"
 			(at 81.4832 46.2026 0)

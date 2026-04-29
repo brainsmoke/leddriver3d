@@ -236,7 +236,7 @@
 		(path "/00000000-0000-0000-0000-00005ef3bfb6")
 		(sheetname "/")
 		(sheetfile "pcb.kicad_sch")
-		(attr through_hole)
+		(attr through_hole dnp)
 		(pad "1" thru_hole circle
 			(at 0 -8.89 90)
 			(size 1.7 1.7)
@@ -573,7 +573,7 @@
 		(path "/00000000-0000-0000-0000-00005ef72b41")
 		(sheetname "/")
 		(sheetfile "pcb.kicad_sch")
-		(attr through_hole)
+		(attr through_hole dnp)
 		(fp_text user "${REFERENCE}"
 			(at 0 3.81 180)
 			(layer "F.Fab")
@@ -688,7 +688,7 @@
 		(path "/00000000-0000-0000-0000-00005eff6fe7")
 		(sheetname "/")
 		(sheetfile "pcb.kicad_sch")
-		(attr through_hole)
+		(attr through_hole dnp)
 		(fp_text user "${REFERENCE}"
 			(at 0 1.270001 90)
 			(layer "F.Fab")
@@ -7802,7 +7802,7 @@
 		(path "/00000000-0000-0000-0000-00005ef3b8f9")
 		(sheetname "/")
 		(sheetfile "pcb.kicad_sch")
-		(attr through_hole)
+		(attr through_hole dnp)
 		(fp_poly
 			(pts
 				(xy -3.5 3.26) (xy -2.17 3.26) (xy -2.17 1.93) (xy -3.5 1.93)

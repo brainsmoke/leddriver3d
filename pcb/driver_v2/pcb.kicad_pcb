@@ -213,7 +213,7 @@
 		(path "/00000000-0000-0000-0000-00005ef3bfb6")
 		(sheetname "/")
 		(sheetfile "pcb.kicad_sch")
-		(attr through_hole)
+		(attr through_hole dnp)
 		(pad "1" thru_hole circle
 			(at 0 -8.89 90)
 			(size 1.7 1.7)
@@ -572,7 +572,7 @@
 		(path "/00000000-0000-0000-0000-00005ef72b41")
 		(sheetname "/")
 		(sheetfile "pcb.kicad_sch")
-		(attr through_hole)
+		(attr through_hole dnp)
 		(fp_text user "${REFERENCE}"
 			(at 0 3.81 180)
 			(layer "F.Fab")
@@ -698,7 +698,7 @@
 		(path "/00000000-0000-0000-0000-00005eff6fe7")
 		(sheetname "/")
 		(sheetfile "pcb.kicad_sch")
-		(attr through_hole)
+		(attr through_hole dnp)
 		(fp_text user "${REFERENCE}"
 			(at 0 1.270001 90)
 			(layer "F.Fab")
@@ -3198,6 +3198,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C165948"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6c5620d1-50ae-48b5-98de-f7270988826e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "USB*C*Receptacle*")
 		(path "/00000000-0000-0000-0000-00005f8c6d1b")
 		(sheetname "/")
@@ -3758,7 +3771,7 @@
 		(path "/00000000-0000-0000-0000-00005ff43269")
 		(sheetname "/")
 		(sheetfile "pcb.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(fp_line
 			(start 2.4 -1.65)
 			(end -2.4 -1.65)
@@ -3948,7 +3961,7 @@
 		(path "/00000000-0000-0000-0000-00005ff43495")
 		(sheetname "/")
 		(sheetfile "pcb.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(fp_line
 			(start 2.4 -1.65)
 			(end -2.4 -1.65)
@@ -7001,7 +7014,7 @@
 		(path "/00000000-0000-0000-0000-00005ef3b8f9")
 		(sheetname "/")
 		(sheetfile "pcb.kicad_sch")
-		(attr through_hole)
+		(attr through_hole dnp)
 		(fp_poly
 			(pts
 				(xy -3.5 3.26) (xy -2.17 3.26) (xy -2.17 1.93) (xy -3.5 1.93)

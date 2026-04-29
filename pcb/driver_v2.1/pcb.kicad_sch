@@ -6607,7 +6607,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "00000000-0000-0000-0000-00005ef3b8f9")
 		(property "Reference" "U1"
 			(at 127.635 95.5802 0)
@@ -6992,7 +6992,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "00000000-0000-0000-0000-00005ef3bfb6")
 		(property "Reference" "J1"
 			(at 260.1976 112.4712 0)
@@ -7076,7 +7076,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "00000000-0000-0000-0000-00005ef72b41")
 		(property "Reference" "J3"
 			(at 260.1976 137.8712 0)
@@ -8182,7 +8182,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "00000000-0000-0000-0000-00005eff6fe7")
 		(property "Reference" "J4"
 			(at 263.5758 144.272 0)
@@ -9666,6 +9666,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "LCSC" "C165948"
+			(at 1.27 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 		(pin "B9"
