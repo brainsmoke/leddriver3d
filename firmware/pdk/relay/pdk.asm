@@ -37,29 +37,29 @@ CLKMD_ENABLE_WATCHDOG = 1<<1
 
 .macro clock_8mhz
 	mov a, #(CLKMD_ENABLE_ILRC|CLKMD_ENABLE_IHRC|CLKMD_IHRC_DIV2)
-	mov clkmd, a
+	mov.io clkmd, a
 .endm
 
 .macro clock_4mhz
 	mov a, #(CLKMD_ENABLE_ILRC|CLKMD_ENABLE_IHRC|CLKMD_IHRC_DIV4)
-	mov clkmd, a
+	mov.io clkmd, a
 .endm
 
 .macro clock_2mhz
 	mov a, #(CLKMD_ENABLE_ILRC|CLKMD_ENABLE_IHRC|CLKMD_IHRC_DIV8)
-	mov clkmd, a
+	mov.io clkmd, a
 .endm
 
 .macro clock_1mhz
 	mov a, #(CLKMD_ENABLE_ILRC|CLKMD_ENABLE_IHRC|CLKMD_IHRC_DIV16)
-	mov clkmd, a
+	mov.io clkmd, a
 .endm
 
 .macro watchdog_enable
 	mov a, #MISC_256
-	mov misc, a
+	mov.io misc, a
 	mov a, #CLKMD_ENABLE_WATCHDOG
-	xor clkmd, a
+	xor.io clkmd, a
 .endm
 
 ; filler pattern that will be replaced with calibration code by the easypdk programmer

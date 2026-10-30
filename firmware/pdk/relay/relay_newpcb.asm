@@ -64,9 +64,9 @@ tmp:           .ds 1
 	.macro init
 
 		mov a, #0
-		mov pa, a
+		mov.io pa, a
 		mov a, #~PIN_MASK
-		mov pac, a
+		mov.io pac, a
 		clear count_low
 		clear count_high
 		clear count_forward
@@ -84,7 +84,7 @@ tmp:           .ds 1
 			mov a, #RESET_COUNT_LOW
 			mov count_low, a
 			inner_loop:
-				mov a, pa
+				mov.io a, pa
 				ceqsn a, #0
 				goto reset_loop
 				dzsn count_low
@@ -98,13 +98,13 @@ tmp:           .ds 1
 	.macro wait_for_data ?loop, ?l1, ?l2, ?l3, ?l4
 
 		loop:
-			mov a, pa
+			mov.io a, pa
 			mov tmp, a
 			.rept 9
-			mov a, pa
+			mov.io a, pa
 			or tmp, a
 			.endm
-			mov a, pa
+			mov.io a, pa
 			or a, tmp
 			clear tmp
 			and a, #PIN_MASK
@@ -127,50 +127,50 @@ tmp:           .ds 1
 
 	.macro wait_for_pulse IN, n, out
 		.rept n
-		t0sn pa, #IN
+		t0sn.io pa, #IN
 		goto out
 		.endm
 		goto reset
 	.endm
 
 	.macro msg_data_1 IN, ifone, always, ?end
-		mov pa, a                          ;  3
-		t0sn pa, #IN                       ;  4
+		mov.io pa, a                       ;  3
+		t0sn.io pa, #IN                    ;  4
 		ifone                              ;   ) 5
 		nop                                ;  6
         always                             ;  7
-		t0sn pa, #IN                       ;  8
+		t0sn.io pa, #IN                    ;  8
 		goto reset                         ;   )
-		xor pa, a                          ; 10
-		t0sn pa, #IN
+		xor.io pa, a                       ; 10
+		t0sn.io pa, #IN
 		goto end
-		t1sn pa, #IN
+		t1sn.io pa, #IN
 		goto reset
 		end:
 	.endm
 
 	.macro msg_data_0 IN, ifone, always, ?end
-		mov pa, a                          ;  3
-		t0sn pa, #IN                       ;  4
+		mov.io pa, a                       ;  3
+		t0sn.io pa, #IN                    ;  4
 		ifone                              ;   ) 5
-		xor pa, a                          ;  6
+		xor.io pa, a                       ;  6
         always                             ;  7
-		t0sn pa, #IN                       ;  8
+		t0sn.io pa, #IN                    ;  8
 		goto reset                         ;   )
 		nop                                ; 10
-		t0sn pa, #IN
+		t0sn.io pa, #IN
 		goto end
-		t1sn pa, #IN
+		t1sn.io pa, #IN
 		goto reset
 		end:
 	.endm
 
 	.macro msg_data_0_last IN, OUT
-		mov pa, a                          ;  3
-		t0sn pa, #IN                       ;  4
-		set1 pac, #OUT                     ;   ) 5
-		xor pa, a                          ;  6
-		mov a, pac                         ;  7
+		mov.io pa, a                       ;  3
+		t0sn.io pa, #IN                    ;  4
+		set1.io pac, #OUT                  ;   ) 5
+		xor.io pa, a                       ;  6
+		mov.io a, pac                      ;  7
 		and a, #PIN_MASK                   ;  8
       ; goto x
 	.endm
@@ -182,27 +182,27 @@ tmp:           .ds 1
 			inc count_forward
 
 			sync_loop:
-			t0sn pa, #IN
+			t0sn.io pa, #IN
 			goto sync_loop
 			sync:
 			wait_for_pulse IN, 10, bit_start
 
 			read_one:
 			nop                  ; 7                4
-			t0sn pa, #IN         ; 8                5
+			t0sn.io pa, #IN      ; 8                5
 			goto reset           ;  )               6
-			xor pa, a            ; 10               7 out: pulse low ( 1 bit )
+			xor.io pa, a         ; 10               7 out: pulse low ( 1 bit )
 
-		l1:	t0sn pa, #IN
+		l1:	t0sn.io pa, #IN
 			goto bit_start
-			t1sn pa, #IN
+			t1sn.io pa, #IN
 			goto l3
 
 			bit_start:
-			mov pa, a            ; 3                0 out: pulse high
-			t0sn pa, #IN         ; 4                1
+			mov.io pa, a         ; 3                0 out: pulse high
+			t0sn.io pa, #IN      ; 4                1
 			goto read_one        ;  ) 5             2
-			xor pa, a            ; 6                3 out: pulse low ( 0 bit )
+			xor.io pa, a         ; 6                3 out: pulse low ( 0 bit )
 			goto l2              ; 7                4,5
 		l2:	goto l1              ; 9 --> 11 l1:     6,7
 
@@ -211,8 +211,8 @@ tmp:           .ds 1
 			msg_data_1 IN, ^/set1 count_forward, #2/, nop
 			msg_data_1 IN, ^/set1 count_forward, #1/, nop
 			msg_data_1 IN, ^/set1 count_forward, #0/, ^/inc count_forward/
-			msg_data_0 IN, ^/set1 pac, #OUT3/, nop
-			msg_data_0 IN, ^/set1 pac, #OUT2/, nop
+			msg_data_0 IN, ^/set1.io pac, #OUT3/, nop
+			msg_data_0 IN, ^/set1.io pac, #OUT2/, nop
 			msg_data_0_last IN, OUT1
 			goto l1
 
