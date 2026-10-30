@@ -1,8 +1,8 @@
 #!/bin/bash
 
 while read a; do
-	~/easy-pdk-programmer-software/easypdkprog -p /dev/ttyACM0 -n PMS150C -v write relay_newpcb-pdk13.ihx && \
+	~/easy-pdk-programmer-software/easypdkprog -p /dev/ttyACM0 -n PMS150C -v write relay_newpcb-pms150c.ihx && \
 	~/easy-pdk-programmer-software/easypdkprog -p /dev/ttyACM0 -n PMS150C read readoutx.hex && \
 	echo "only diff should (may) be the clock calibration value" && \
-	diff relay_newpcb-pdk13_readout.hex readoutx.hex
+	diff relay_newpcb-pms150c_readout.hex readoutx.hex
 done
