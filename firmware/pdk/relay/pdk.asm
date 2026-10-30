@@ -1,7 +1,8 @@
 
 ;ugly hack due to missing ifdef functionality
 PMS150C = 1
-PFS154  = 2
+PMS150G = 2
+PFS154  = 3
 .include "part.asm"
 
 acc   = 0x00

@@ -4,15 +4,17 @@ TARGETS=relay_oldpcb-pms150c.ihx \
         relay_newpcb-pms150c.ihx \
         relay_newpcb-pfs154.ihx \
         relay5-pms150c.ihx \
-        relay5-pfs154.ihx
+        relay5-pfs154.ihx \
+        relay_chiral_sot236-pms150g.ihx
 
 CLEAN=$(TARGETS)
-DEPS=pdk.asm device/pms150c/part.asm device/pfs154/part.asm
+DEPS=pdk.asm device/pms150c/part.asm device/pms150g/part.asm device/pfs154/part.asm
 
 AS13=sdaspdk13
 AS14=sdaspdk14
 
 INC_PMS150C=-Idevice/pms150c
+INC_PMS150G=-Idevice/pms150g
 INC_PFS154=-Idevice/pfs154
 
 all: $(TARGETS)
@@ -23,6 +25,9 @@ clean:
 
 %-pms150c.rel: %.asm $(DEPS)
 	$(AS13) $(INC_PMS150C) -s -o -l $@ $<
+
+%-pms150g.rel: %.asm $(DEPS)
+	$(AS13) $(INC_PMS150G) -s -o -l $@ $<
 
 %-pfs154.rel: %.asm $(DEPS)
 	$(AS14) $(INC_PFS154) -s -o -l $@ $<
