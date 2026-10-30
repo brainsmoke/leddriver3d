@@ -116,9 +116,9 @@ FREQ=7372800
 easypdk_calibrate FREQ, 3300
 
 mov a, #PINMASK
-mov pac, a
+mov.io pac, a
 mov a, #0
-mov pa, a
+mov.io pa, a
 
 watchdog_enable
 wdreset

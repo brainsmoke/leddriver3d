@@ -35,9 +35,9 @@ READ_CHANNEL_3=(READ_CHANNEL_2+READ_CHANNEL_2_INSTR)
 .macro softpwm_init
 
 ;	mov a, #0
-;	mov pa, a
+;	mov.io pa, a
 ;	mov a, #PINMASK
-;	mov pac, a
+;	mov.io pac, a
 
 	clear refresh
 	clear cmp1
@@ -181,20 +181,20 @@ nop; filler
 	switchcase_filler (CASE_CHANNEL_PRE_INSTR-3)
 ;case_31_pin1
 	mov a, out0          ;  6 + 1
-	mov pa, a            ;  7 + 1
-	set1 pa, #CHANNEL1   ;  8 + 1
+	mov.io pa, a         ;  7 + 1
+	set1.io pa, #CHANNEL1 ; 8 + 1
 	goto case31_exit     ;  9 + 2
 	switchcase_filler (CASE_CHANNEL_INSTR-4)
 ;case_31_pin2
 	mov a, out0          ;  6 + 1
-	mov pa, a            ;  7 + 1
-	set1 pa, #CHANNEL2   ;  8 + 1
+	mov.io pa, a         ;  7 + 1
+	set1.io pa, #CHANNEL2 ; 8 + 1
 	goto case31_exit     ;  9 + 2
 	switchcase_filler (CASE_CHANNEL_INSTR-4)
 ;case_31_pin3
 	mov a, out0          ;  6 + 1
-	mov pa, a            ;  7 + 1
-	set1 pa, #CHANNEL3   ;  8 + 1
+	mov.io pa, a         ;  7 + 1
+	set1.io pa, #CHANNEL3 ; 8 + 1
 	goto case31_exit     ;  9 + 2
 ;	switchcase_filler (CASE_CHANNEL_INSTR-4)
 case31_exit:
@@ -204,14 +204,14 @@ case31_exit:
 
 case_32_cont:
 	or a, out0           ;  6 + 1
-	mov pa, a            ;  7 + 1
+	mov.io pa, a         ;  7 + 1
 	clear pin_mask_cur   ;  8 + 1
 	clear out0           ;  9 + 1
 	goto A1              ; 10 + 2
 
 jmp_tgt_1:
 	mov a, out0          ;  6 + 1
-	mov pa, a            ;  7 + 1
+	mov.io pa, a         ;  7 + 1
 	clear pin_mask_cur   ;  8 + 1
 	delay (34-9)         ;  9 + ..
 	mov a, switch_channel; 34 + 1
@@ -219,149 +219,149 @@ jmp_tgt_1:
 	switchcase_filler (CASE_CHANNEL_PRE_INSTR-1)
 ;pin1
 	mov a, out1          ; 37 + 1
-	set1 pa, #CHANNEL1   ; 38 + 1
-	mov pa, a            ; 39 + 1
+	set1.io pa, #CHANNEL1 ;38 + 1
+	mov.io pa, a         ; 39 + 1
 	goto cycle_42        ; 40 + 2
 	switchcase_filler (CASE_CHANNEL_INSTR-4)
 ;pin2
 	mov a, out1          ; 37 + 1
-	set1 pa, #CHANNEL2   ; 38 + 1
-	mov pa, a            ; 39 + 1
+	set1.io pa, #CHANNEL2 ;38 + 1
+	mov.io pa, a         ; 39 + 1
 	goto cycle_42        ; 40 + 2
 	switchcase_filler (CASE_CHANNEL_INSTR-4)
 ;pin3
 	mov a, out1          ; 37 + 1
-	set1 pa, #CHANNEL3   ; 38 + 1
-	mov pa, a            ; 39 + 1
+	set1.io pa, #CHANNEL3 ;38 + 1
+	mov.io pa, a         ; 39 + 1
 	goto cycle_42        ; 40 + 2
 ;	switchcase_filler (CASE_CHANNEL_INSTR-4)
 
 jmp_tgt_A:
 	xch a, out0          ;  6 + 1
-	mov pa, a            ;  7 + 1
+	mov.io pa, a            ;  7 + 1
 	or a, pin_mask_cur   ;  8 + 1
 	dzsn out0            ;  9 + 1
 	goto A1              ; 10 + 1|2
-	mov pa, a            ; 11 + 1        28  A: 1
+	mov.io pa, a         ; 11 + 1        28  A: 1
 A1:	dzsn out0            ; 12 + 1
 	goto A2              ; 13 + 1|2
-	mov pa, a            ; 14 + 1        25  A: 2
+	mov.io pa, a         ; 14 + 1        25  A: 2
 A2:	dzsn out0            ; 15 + 1
 	goto A3              ; 16 + 1|2
-	mov pa, a            ; 17 + 1        22  A: 3
+	mov.io pa, a         ; 17 + 1        22  A: 3
 A3:	dzsn out0            ; 18 + 1
 	goto A4              ; 19 + 1|2
-	mov pa, a            ; 20 + 1        19  A: 4
+	mov.io pa, a         ; 20 + 1        19  A: 4
 A4:	dzsn out0            ; 21 + 1
 	goto A5              ; 22 + 1|2
-	mov pa, a            ; 23 + 1        16  A: 5
+	mov.io pa, a         ; 23 + 1        16  A: 5
 A5:	dzsn out0            ; 24 + 1
 	goto A6              ; 25 + 1|2
-	mov pa, a            ; 26 + 1        13  A: 6
+	mov.io pa, a         ; 26 + 1        13  A: 6
 A6:	dzsn out0            ; 27 + 1
 	goto A7              ; 28 + 1|2
-	mov pa, a            ; 29 + 1        10  A: 7
+	mov.io pa, a         ; 29 + 1        10  A: 7
 A7:	dzsn out0            ; 30 + 1
 	goto A8              ; 31 + 1|2
-	mov pa, a            ; 32 + 1         7  A: 8
+	mov.io pa, a         ; 32 + 1         7  A: 8
 A8:	dzsn out0            ; 33 + 1
 	goto A9              ; 34 + 1|2
-	mov pa, a            ; 35 + 1         4  A: 9
+	mov.io pa, a         ; 35 + 1         4  A: 9
 A9:	nop                  ; 36 + 1
 	clear pin_mask_cur   ; 37 + 1|2
 	mov a, out1          ; 38 + 1
-	mov pa, a            ; 39 + 1         0  A: 0
+	mov.io pa, a         ; 39 + 1         0  A: 0
 	goto cycle_42        ; 40 + 2
 
 
 jmp_tgt_B:
 	xch a, out0          ;  6 + 1
-	mov pa, a            ;  7 + 1
+	mov.io pa, a            ;  7 + 1
 	or a, pin_mask_cur   ;  8 + 1
 	clear pin_mask_cur   ;  9 + 1
 	dzsn out0            ; 10 + 1
 	goto B1              ; 11 + 1|2
-	mov pa, a            ; 12 + 1        27  A: 1
+	mov.io pa, a         ; 12 + 1        27  A: 1
 B1:	dzsn out0            ; 13 + 1
 	goto B2              ; 14 + 1|2
-	mov pa, a            ; 15 + 1        24  A: 2
+	mov.io pa, a         ; 15 + 1        24  A: 2
 B2:	dzsn out0            ; 16 + 1
 	goto B3              ; 17 + 1|2
-	mov pa, a            ; 18 + 1        21  A: 3
+	mov.io pa, a         ; 18 + 1        21  A: 3
 B3:	dzsn out0            ; 19 + 1
 	goto B4              ; 20 + 1|2
-	mov pa, a            ; 21 + 1        18  A: 4
+	mov.io pa, a         ; 21 + 1        18  A: 4
 B4:	dzsn out0            ; 22 + 1
 	goto B5              ; 23 + 1|2
-	mov pa, a            ; 24 + 1        15  A: 5
+	mov.io pa, a         ; 24 + 1        15  A: 5
 B5:	dzsn out0            ; 25 + 1
 	goto B6              ; 26 + 1|2
-	mov pa, a            ; 27 + 1        12  A: 6
+	mov.io pa, a         ; 27 + 1        12  A: 6
 B6:	dzsn out0            ; 28 + 1
 	goto B7              ; 29 + 1|2
-	mov pa, a            ; 30 + 1         9  A: 7
+	mov.io pa, a         ; 30 + 1         9  A: 7
 B7:	dzsn out0            ; 31 + 1
 	goto B8              ; 32 + 1|2
-	mov pa, a            ; 33 + 1         6  A: 8
+	mov.io pa, a         ; 33 + 1         6  A: 8
 B8:	dzsn out0            ; 34 + 1
 	goto B9              ; 35 + 1|2
-	mov pa, a            ; 36 + 1         3  A: 9
+	mov.io pa, a         ; 36 + 1         3  A: 9
 B9:	nop                  ; 37 + 1
 	mov a, out1          ; 38 + 1
-	mov pa, a            ; 39 + 1
+	mov.io pa, a         ; 39 + 1
 	goto cycle_42        ; 40 + 2
 
 
 jmp_tgt_C:
 	xch a, out0          ;  6 + 1
-	mov pa, a            ;  7 + 1
+	mov.io pa, a         ;  7 + 1
 	or a, pin_mask_cur   ;  8 + 1
 	clear pin_mask_cur   ;  9 + 1
 	nop                  ; 10 + 1
 	dzsn out0            ; 11 + 1
 	goto C1              ; 12 + 1|2
-	mov pa, a            ; 13 + 1        26  A: 1
+	mov.io pa, a         ; 13 + 1        26  A: 1
 C1:	dzsn out0            ; 14 + 1
 	goto C2              ; 15 + 1|2
-	mov pa, a            ; 16 + 1        23  A: 2
+	mov.io pa, a         ; 16 + 1        23  A: 2
 C2:	dzsn out0            ; 17 + 1
 	goto C3              ; 18 + 1|2
-	mov pa, a            ; 19 + 1        20  A: 3
+	mov.io pa, a         ; 19 + 1        20  A: 3
 C3:	dzsn out0            ; 20 + 1
 	goto C4              ; 21 + 1|2
-	mov pa, a            ; 22 + 1        17  A: 4
+	mov.io pa, a         ; 22 + 1        17  A: 4
 C4:	dzsn out0            ; 23 + 1
 	goto C5              ; 24 + 1|2
-	mov pa, a            ; 25 + 1        14  A: 5
+	mov.io pa, a         ; 25 + 1        14  A: 5
 C5:	dzsn out0            ; 26 + 1
 	goto C6              ; 27 + 1|2
-	mov pa, a            ; 28 + 1        11  A: 6
+	mov.io pa, a         ; 28 + 1        11  A: 6
 C6:	dzsn out0            ; 29 + 1
 	goto C7              ; 30 + 1|2
-	mov pa, a            ; 31 + 1         8  A: 7
+	mov.io pa, a         ; 31 + 1         8  A: 7
 C7:	dzsn out0            ; 32 + 1
 	goto C8              ; 33 + 1|2
-	mov pa, a            ; 34 + 1         5  A: 8
+	mov.io pa, a         ; 34 + 1         5  A: 8
 C8:	dzsn out0            ; 35 + 1
 	goto C9              ; 36 + 1|2
-	mov pa, a            ; 37 + 1         2  A: 9
+	mov.io pa, a         ; 37 + 1         2  A: 9
 C9:	mov a, out1          ; 38 + 1
-	mov pa, a            ; 39 + 1
+	mov.io pa, a         ; 39 + 1
 	goto cycle_42        ; 40 + 2
 
 jmp_tgt_29:
 	xch a, out0          ;  6 + 1
-	mov pa, a            ;  7 + 1
+	mov.io pa, a         ;  7 + 1
 	or a, pin_mask_cur   ;  8 + 1
 	clear pin_mask_cur   ;  9 + 1
-	mov pa, a            ; 10 + 1        29  A: 0
+	mov.io pa, a         ; 10 + 1        29  A: 0
 	goto B1              ; 11 + 2
 
 jmp_tgt_30:
 	xch a, out0          ;  6 + 1
-	mov pa, a            ;  7 + 1
+	mov.io pa, a         ;  7 + 1
 	or a, pin_mask_cur   ;  8 + 1
-	mov pa, a            ;  9 + 1        30  A: 0
+	mov.io pa, a         ;  9 + 1        30  A: 0
 	clear pin_mask_cur   ; 10 + 1
 	goto B1              ; 11 + 2
 
@@ -401,7 +401,7 @@ highbits:
 	xor a, #(1<<CHANNEL2)  ;  4 + 1
 	dzsn cmp3              ;  5 + 1
 	xor a, #(1<<CHANNEL3)  ;  6 + 1
-	xor pa, a              ;  7 + 1
+	xor.io pa, a           ;  7 + 1
 
 	dzsn cycle             ;  8 + 1. 
 	goto cycle_continue    ;  9 + 2 )
@@ -444,7 +444,7 @@ l1:
 	xor a, #(1<<CHANNEL2)  ; 36 + 1
 	dzsn cmp3              ; 37 + 1
 	xor a, #(1<<CHANNEL3)  ; 38 + 1
-	xor pa, a              ; 39 + 1
+	xor.io pa, a           ; 39 + 1
 	delay (50-40)          ; 40 + ...
 
 pre_switch:
@@ -456,10 +456,10 @@ pre_switch:
 	xor a, #(1<<CHANNEL2)  ;  4 + 1
 	dzsn cmp3              ;  5 + 1
 	xor a, #(1<<CHANNEL3)  ;  6 + 1
-	xor pa, a              ;  7 + 1
+	xor.io pa, a           ;  7 + 1
 
 	nop                    ;  8 + 1 probabaly needed
-	mov a, pa              ;  9 + 1 a == pa
+	mov.io a, pa           ;  9 + 1 a == pa
 	and a, #PINMASK        ; 10 + 1 needed?
 	dzsn cmp1              ; 11 + 1
 	xor a, #(1<<CHANNEL1)  ; 12 + 1
@@ -506,7 +506,7 @@ pre_switch:
 ; END SWITCH
 l2:	mov a, out1            ; 37 + 1
 	xor a, #PINMASK        ; 38 + 1
-	mov pa, a              ; 39 + 1
+	mov.io pa, a           ; 39 + 1
 	mov a, out0            ; 40 + 1
 	dzsn cmp1              ; 41 + 1
 	xor a, #(1<<CHANNEL1)  ; 42 + 1
@@ -571,7 +571,7 @@ read_channel_1:
 	t0sn low1_staging, #5       ; 36 + 1
 	clear dith                  ; 37 + 1
 	mov a, out1                 ; 38 + 1
-	xor pa, a                   ; 39 + 1
+	xor.io pa, a                ; 39 + 1
 	mov a, dith                 ; 40 + 1
 	mov dith1_staging, a        ; 41 + 1
 	goto cycle_44               ; 42 + 2
@@ -596,7 +596,7 @@ read_channel_2:
 	t0sn low2_staging, #5       ; 36 + 1
 	clear dith                  ; 37 + 1
 	mov a, out1                 ; 38 + 1
-	xor pa, a                   ; 39 + 1
+	xor.io pa, a                ; 39 + 1
 	mov a, dith                 ; 40 + 1
 	mov dith2_staging, a        ; 41 + 1
 	goto cycle_44               ; 42 + 2
@@ -621,7 +621,7 @@ read_channel_3:
 	t0sn low3_staging, #5       ; 36 + 1
 	clear dith                  ; 37 + 1
 	mov a, out1                 ; 38 + 1
-	xor pa, a                   ; 39 + 1
+	xor.io pa, a                ; 39 + 1
 	mov a, dith                 ; 40 + 1
 	mov dith3_staging, a        ; 41 + 1
 	mov a, #(1<<DATA_OK)        ; 42 + 1
@@ -635,7 +635,7 @@ cycle_29:
 	delay (38-29)               ; 29 + ..
 cycle_38:
 	mov a, out1                 ; 38 + 1
-	xor pa, a                   ; 39 + 1
+	xor.io pa, a                ; 39 + 1
 	brownout_erratum_workaround_2cycles ; 40 + 2 (reset in case of a failed brownout)
 	goto cycle_44               ; 42 + 2
 
@@ -667,7 +667,7 @@ do_reset:
 	mov a, #READ_CHANNEL_1-PRE_DATA ; 36 + 1
 	sub cur_channel, a              ; 37 + 1
 	mov a, out1                     ; 38 + 1
-	xor pa, a                       ; 39 + 1
+	xor.io pa, a                    ; 39 + 1
 	t0sn refresh, #DATA_OK          ; 40 + 1
 	set1 refresh, #REFRESH          ; 41 + 1
 	goto cycle_44                   ; 42 + 2
@@ -688,7 +688,7 @@ do_refresh:
 	mov high2, a                ; 37 + 1
 
 	mov a, out1                 ; 38 + 1
-	xor pa, a                   ; 39 + 1
+	xor.io pa, a                ; 39 + 1
 
 	mov a, high3_staging        ; 40 + 1
 	mov high3, a                ; 41 + 1

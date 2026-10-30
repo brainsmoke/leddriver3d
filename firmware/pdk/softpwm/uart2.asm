@@ -18,7 +18,7 @@ RESET=3
 
 .macro uart_init
 	mov a, #MASK_UART
-	mov paph, a
+	mov.io paph, a
 	clear error
 	set1 error, #NEW_DATA   ; begin with an error state, only read pixel data after the next timeout
 	clear uart_state
@@ -41,7 +41,7 @@ RESET=3
 	goto l_sample                      ;  3 + 2       |
 	; stop bit                                        |
 	mov a, shiftreg                    ;  4 + 1     <-'
-	t1sn pa, #PIN_UART                 ;  5 + 1
+	t1sn.io pa, #PIN_UART              ;  5 + 1
 	set1 error, #NEW_DATA              ;  6 + 2
 	t0sn uart_state, #LOW_BYTE         ;  7 + 1
 	goto l_highread                    ;  8 + 2
@@ -55,7 +55,7 @@ l_waitidle:
 	goto l_wait                        ;  4 + 2   |
 l_idle:                                ;          |
 	; uart_state=idle, try read start bit         |
-	t0sn pa, #PIN_UART               ;  5 + 1   <-' --.
+	t0sn.io pa, #PIN_UART            ;  5 + 1   <-' --.
 	goto l_idle_nodata               ;  6 + 2         |
 	mov a, #(START_DELAY)            ;  7 + 1       <-'
 	mov wait_count, a                ;  8 + 1
@@ -88,7 +88,7 @@ l_wait:
 
 l_sample:
 	; sample data
-	t0sn pa, #PIN_UART       ;  5 + 1
+	t0sn.io pa, #PIN_UART    ;  5 + 1
 	set1 uart_tmp, #7        ;  6 + 1
 	sr shiftreg              ;  7 + 1
 	t0sn uart_tmp, #7        ;  8 + 1

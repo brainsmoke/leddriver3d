@@ -115,9 +115,9 @@ FREQ=7372800
 easypdk_calibrate FREQ, 3300
 
 mov a, #255
-mov pac, a
+mov.io pac, a
 mov a, #0
-mov pa, a
+mov.io pa, a
 
 softpwm_init
 
@@ -127,12 +127,12 @@ mov out1, a          ; 12 + 1
 mov a, #33 + 1
 mov test_counter, a
 
-set1 pa, #2
+set1.io pa, #2
 
 loop:
 
 .macro uart
-set1 pa, #0                  ;  0 + 1
+set1.io pa, #0               ;  0 + 1
 t1sn pin_mask_cur, #CHANNEL1 ;  1 + 1
 inc test_counter             ;  2 + 1
 mov a, #33                   ;  3 + 1
@@ -146,7 +146,7 @@ nop                          ;  9 + 1
 sl low_cur                   ; 10 + 1
 mov a, #(1<<1)               ; 11 + 1
 mov out0, a                  ; 12 + 1
-set0 pa, #0                  ; 13 + 1
+set0.io pa, #0               ; 13 + 1
 .endm
 
 softpwm_lowbits loop

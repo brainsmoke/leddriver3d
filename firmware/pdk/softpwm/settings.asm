@@ -20,7 +20,7 @@ mov ptr, a
 mov a, #>label
 mov ptr+1, a
 mov a, #ptr
-mov sp, a
+mov.io sp, a
 find_settings_loop:
 ldspth
 ceqsn a, #0
