@@ -61,20 +61,21 @@ tmp:           .ds 1
 .area CODE (ABS)
 .org 0x00
 
-set_fuse FUSE_SET_PA5_NORMAL
+set_fuse (FUSE_SET_PA5_NORMAL&FUSE_SET_LVR_3V&FUSE_SET_BOOTUP_SLOW)
+;set_fuse (FUSE_SET_PA5_NORMAL&FUSE_SET_LVR_3V)
 
 	.macro init
 
 		mov a, #0
 		mov.io pa, a
-		mov a, #PIN_MASK
-		mov.io papl, a
 		mov a, #~PIN_MASK
 		mov.io pac, a
+		mov a, #PIN_MASK
+		mov.io padier, a
+		mov.io papl, a
 		clear count_low
 		clear count_high
 		clear count_forward
-		clear tmp
 
 	.endm
 
@@ -182,6 +183,7 @@ set_fuse FUSE_SET_PA5_NORMAL
 
 	.macro relay IN, OUT1, OUT2, OUT3, ?sync, ?sync_loop, ?bit_start, ?read_one, ?l1, ?l2, ?l3, ?route_data, ?bit_fast_start
 			mov a, #0
+			mov.io papl, a
 			clear count_forward
 			inc count_forward
 
@@ -225,7 +227,10 @@ set_fuse FUSE_SET_PA5_NORMAL
 			wait_for_pulse #IN, 10, route_data
 	.endm
 
+disgint
+enable_ihrc
 clock_8mhz
+disable_ilrc
 easypdk_calibrate 8000000, 5000
 
 reset:

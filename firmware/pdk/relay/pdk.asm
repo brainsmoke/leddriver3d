@@ -3,6 +3,7 @@
 PMS150C = 1
 PMS150G = 2
 PFS154  = 3
+PFC161  = 4
 .include "part.asm"
 
 acc   = 0x00
@@ -13,6 +14,7 @@ inten = 0x04
 intrq = 0x05
 ihrcr = 0x0b
 
+padier= 0x0d
 pa    = 0x10
 pac   = 0x11
 paph  = 0x12
@@ -34,6 +36,14 @@ MISC_4096         = 1
 MISC_16384        = 2
 
 CLKMD_ENABLE_WATCHDOG = 1<<1
+
+.macro enable_ihrc
+	set1.io clkmd, #4
+.endm
+
+.macro disable_ilrc
+	set0.io clkmd, #2
+.endm
 
 .macro clock_8mhz
 	mov a, #(CLKMD_ENABLE_ILRC|CLKMD_ENABLE_IHRC|CLKMD_IHRC_DIV2)
