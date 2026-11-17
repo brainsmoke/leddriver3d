@@ -67,10 +67,10 @@ tmp:           .ds 1
 
 		mov a, #0
 		mov.io pa, a
-		mov a, #~(PIN_MASK | (1<<PIN_SHORT_DANGER))
 		mov.io pac, a
 		mov a, #PIN_MASK
 		mov.io padier, a
+		mov a, #~0
 		mov.io papl, a
 		clear count_low
 		clear count_high
@@ -175,14 +175,14 @@ tmp:           .ds 1
 		set1.io pac, #OUT                  ;   ) 5
 		xor.io pa, a                       ;  6
 		mov.io a, pac                      ;  7
-		and a, #PIN_MASK                   ;  8
-      ; goto x
+		not a                              ;  8
+		mov.io papl, a                     ;  9
+		not a                              ; 10
 	.endm
 
 
 	.macro relay IN, OUT1, OUT2, OUT3, ?sync, ?sync_loop, ?bit_start, ?read_one, ?l1, ?l2, ?l3, ?route_data, ?bit_fast_start
 			mov a, #0
-			mov.io papl, a
 			clear count_forward
 			inc count_forward
 
@@ -219,7 +219,19 @@ tmp:           .ds 1
 			msg_data_0 IN, ^/set1.io pac, #OUT3/, nop
 			msg_data_0 IN, ^/set1.io pac, #OUT2/, nop
 			msg_data_0_last IN, OUT1
-			goto l1
+
+;		l1_dup:
+			t0sn.io pa, #IN
+			goto bit_start
+			t1sn.io pa, #IN
+			goto l3
+;			bit_start_dup:
+			mov.io pa, a         ; 3                0 out: pulse high
+			t0sn.io pa, #IN      ; 4                1
+			goto read_one        ;  ) 5             2
+			xor.io pa, a         ; 6                3 out: pulse low ( 0 bit )
+			goto l2              ; 7                4,5
+
 
         l3: dzsn count_forward
 			goto sync
@@ -227,6 +239,8 @@ tmp:           .ds 1
 	.endm
 
 disgint
+disable_touch_sense
+set_lvr MISCLVR_3V5
 enable_ihrc
 clock_8mhz
 disable_ilrc
