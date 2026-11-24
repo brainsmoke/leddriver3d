@@ -189,11 +189,15 @@ fsm_loop:
 	cmp rDATA, #0xF2
 		ble 1f
 
-	adds rSTATE, #(IN_F3_FE-IN_F2)
+	adds rSTATE, #(IN_F3-IN_F2)
+	cmp rDATA, #0xF3
+		ble 1f
+
+	adds rSTATE, #(IN_F4_FE-IN_F3)
 	cmp rDATA, #0xFE
 		ble 1f
 
-	adds rSTATE, #(IN_FF-IN_F3_FE)
+	adds rSTATE, #(IN_FF-IN_F4_FE)
 
 	1:
 
@@ -203,11 +207,13 @@ fsm_loop:
 	beq next_frame
 	cmp rSTATE, #BAD_RETURN
 	beq ignore_frame
+	cmp rSTATE, #RESERVED
+	beq ignore_frame
+	cmp rSTATE, #TIMING
+	beq timing
 	cmp rSTATE, #ROUTE
 	beq ignore_frame //
 //	beq new_route
-	cmp rSTATE, #TIMING
-	beq timing
 
 	b fsm_loop
 

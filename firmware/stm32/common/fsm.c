@@ -3,17 +3,17 @@
 
 const uint8_t fsm[STATE_COUNT] =
 {
-	/*                IN_00    IN_01_EF    IN_F0        IN_F1        IN_F2        IN_F3_FE    IN_FF      */
-	/* GOOD        */ GOOD_00, GOOD_01_FE, GOOD_01_FE,  GOOD_01_FE,  GOOD_01_FE,  GOOD_01_FE, GOOD_FF,
-	/* GOOD_00     */ GOOD,    GOOD,       GOOD,        GOOD,        GOOD,        GOOD,       GOOD,
-	/* GOOD_01_FE  */ GOOD,    GOOD,       GOOD,        GOOD,        GOOD,        GOOD,       BAD_FF,
-	/* GOOD_FF     */ GOOD,    GOOD,       GOOD,        GOOD,        GOOD,        GOOD,       GOOD_FFFF,
-	/* GOOD_FFFF   */ BAD,     BAD,        BAD,         BAD,         BAD,         BAD,        GOOD_FFFFFF,
-	/* GOOD_FFFFFF */ BAD,     BAD,        GOOD_RETURN, ROUTE,       TIMING,      BAD_RETURN, BAD_FFFFFF,
-	/* BAD         */ BAD,     BAD,        BAD,         BAD,         BAD,         BAD,        BAD_FF,
-	/* BAD_FF      */ BAD,     BAD,        BAD,         BAD,         BAD,         BAD,        BAD_FFFF,
-	/* BAD_FFFF    */ BAD,     BAD,        BAD,         BAD,         BAD,         BAD,        BAD_FFFFFF,
-	/* BAD_FFFFFF  */ BAD,     BAD,        BAD_RETURN,  BAD_RETURN,  BAD_RETURN,  BAD_RETURN, BAD_FFFFFF,
+	/*                IN_00    IN_01_EF    IN_F0        IN_F1        IN_F2        IN_F3        IN_F4_FE    IN_FF      */
+	/* GOOD        */ GOOD_00, GOOD_01_FE, GOOD_01_FE,  GOOD_01_FE,  GOOD_01_FE,  GOOD_01_FE,  GOOD_01_FE, GOOD_FF,
+	/* GOOD_00     */ GOOD,    GOOD,       GOOD,        GOOD,        GOOD,        GOOD,        GOOD,       GOOD,
+	/* GOOD_01_FE  */ GOOD,    GOOD,       GOOD,        GOOD,        GOOD,        GOOD,        GOOD,       BAD_FF,
+	/* GOOD_FF     */ GOOD,    GOOD,       GOOD,        GOOD,        GOOD,        GOOD,        GOOD,       GOOD_FFFF,
+	/* GOOD_FFFF   */ BAD,     BAD,        BAD,         BAD,         BAD,         BAD,         BAD,        GOOD_FFFFFF,
+	/* GOOD_FFFFFF */ BAD,     BAD,        GOOD_RETURN, RESERVED,    TIMING,      ROUTE,       BAD_RETURN, BAD_FFFFFF,
+	/* BAD         */ BAD,     BAD,        BAD,         BAD,         BAD,         BAD,         BAD,        BAD_FF,
+	/* BAD_FF      */ BAD,     BAD,        BAD,         BAD,         BAD,         BAD,         BAD,        BAD_FFFF,
+	/* BAD_FFFF    */ BAD,     BAD,        BAD,         BAD,         BAD,         BAD,         BAD,        BAD_FFFFFF,
+	/* BAD_FFFFFF  */ BAD,     BAD,        BAD_RETURN,  BAD_RETURN,  BAD_RETURN,  BAD_RETURN,  BAD_RETURN, BAD_FFFFFF,
 };
 
 const uint8_t fsm_map[256] =
@@ -48,7 +48,7 @@ const uint8_t fsm_map[256] =
     IN_01_EF, IN_01_EF, IN_01_EF, IN_01_EF, IN_01_EF, IN_01_EF, IN_01_EF, IN_01_EF,
     IN_01_EF, IN_01_EF, IN_01_EF, IN_01_EF, IN_01_EF, IN_01_EF, IN_01_EF, IN_01_EF,
     IN_01_EF, IN_01_EF, IN_01_EF, IN_01_EF, IN_01_EF, IN_01_EF, IN_01_EF, IN_01_EF,
-    IN_F0   , IN_F1   , IN_F2   , IN_F3_FE, IN_F3_FE, IN_F3_FE, IN_F3_FE, IN_F3_FE,
-    IN_F3_FE, IN_F3_FE, IN_F3_FE, IN_F3_FE, IN_F3_FE, IN_F3_FE, IN_F3_FE, IN_FF,
+    IN_F0   , IN_F1   , IN_F2   , IN_F3   , IN_F4_FE, IN_F4_FE, IN_F4_FE, IN_F4_FE,
+    IN_F4_FE, IN_F4_FE, IN_F4_FE, IN_F4_FE, IN_F4_FE, IN_F4_FE, IN_F4_FE, IN_FF,
 };
 

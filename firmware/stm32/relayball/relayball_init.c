@@ -5,9 +5,9 @@
 #include "util.h"
 #include "fsm.h"
 
-uint16_t frame_a[N_VALUES];
-uint16_t frame_b[N_VALUES];
-uint8_t table[ROUTING_TABLE_SIZE_PADDED];
+uint16_t frame_a[N_VALUES] __attribute__((aligned(4)));
+uint16_t frame_b[N_VALUES] __attribute__((aligned(4)));
+uint8_t table[ROUTING_TABLE_SIZE_PADDED] __attribute__((aligned(4)));
 uint16_t *cur;
 uint8_t *routing_table;
 uint16_t pulse_width8x;

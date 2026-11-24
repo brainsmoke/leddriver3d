@@ -154,7 +154,11 @@ read_end_of_frame_marker:
 			movs rSTATE, #BAD_FF
 	1:
 
+#define rFSM_MAP  rI
+	ldr rFSM_MAP, =fsm_map
+
 fsm_loop:
+	// rSTATE = fsm[fsm_map[getchar()]+rSTATE]
 
 	0:	ldr rSCRATCH, [rPCNT]
 		subs rSCRATCH, rBUFEND, rSCRATCH
@@ -169,46 +173,26 @@ fsm_loop:
 		ldr rPREAD, =recv_buf
 	1:
 
-	adds rSTATE, #IN_00
-	cmp rDATA, #0x00
-		beq 1f
-
-	adds rSTATE, #(IN_01_EF-IN_00)
-	cmp rDATA, #0xEF
-		ble 1f
-
-	adds rSTATE, #(IN_F0-IN_01_EF)
-	cmp rDATA, #0xF0
-		ble 1f
-
-	adds rSTATE, #(IN_F1-IN_F0)
-	cmp rDATA, #0xF1
-		ble 1f
-
-	adds rSTATE, #(IN_F2-IN_F1)
-	cmp rDATA, #0xF2
-		ble 1f
-
-	adds rSTATE, #(IN_F3_FE-IN_F2)
-	cmp rDATA, #0xFE
-		ble 1f
-
-	adds rSTATE, #(IN_FF-IN_F3_FE)
-
-	1:
-
+	ldrb rDATA, [rFSM_MAP, rDATA]
 	add rSTATE, rFSM
-	ldrb rSTATE, [rSTATE]
+	ldrb rSTATE, [rSTATE, rDATA]
+
+	//
+
 	cmp rSTATE, #GOOD_RETURN
 	beq next_frame
 	cmp rSTATE, #BAD_RETURN
 	beq ignore_frame
-	cmp rSTATE, #ROUTE
-	beq new_route
+	cmp rSTATE, #RESERVED
+	beq ignore_frame
 	cmp rSTATE, #TIMING
 	beq timing
+	cmp rSTATE, #ROUTE
+	beq new_route
 
 	b fsm_loop
+
+#unset rFSM_MAP
 
 timing:
 
