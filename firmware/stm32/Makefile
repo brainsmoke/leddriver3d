@@ -74,6 +74,11 @@ RELAYBALL_HEADERS=relayball/relayball.h common/util.h common/fsm.h common/m0dela
 RELAYBALL_SRCS=relayball/relayball.S relayball/relayball_init.c relayball/relayball_bitbang.S common/util.c common/fsm.c $(STARTUP_SRC)
 RELAYBALL_FLAGS=-I relayball
 
+RELAYBALL180_ELF=relayball180/relayball180.elf
+RELAYBALL180_HEADERS=relayball180/relayball180.h common/util.h common/fsm.h common/m0delay.S
+RELAYBALL180_SRCS=relayball180/relayball180.S relayball180/relayball180_init.c relayball180/relayball180_bitbang.S common/util.c common/fsm.c $(STARTUP_SRC)
+RELAYBALL180_FLAGS=-I relayball180
+
 UARTBALL16_ELF=uartball16/uartball16.elf
 UARTBALL16_HEADERS=uartball16/uartball16.h common/util.h
 UARTBALL16_SRCS=uartball16/uartball16.c common/util.c $(STARTUP_SRC)
@@ -106,6 +111,7 @@ ELFS=                        \
 	$(STRIP5_ELF)            \
 	$(STRIP5_GPIOB_ELF)      \
 	$(RELAYBALL_ELF)         \
+	$(RELAYBALL180_ELF)      \
 	$(UARTBALL16_ELF)        \
 	$(WS2801PAR_ELF)         \
 	$(WS2801PAR_ORIG_ELF)    \
@@ -157,6 +163,9 @@ $(STRIP5_GPIOB_ELF): $(STRIP5_SRCS) $(LINKER_SCRIPT_072) $(STRIP5_HEADERS)
 
 $(RELAYBALL_ELF): $(RELAYBALL_SRCS) $(LINKER_SCRIPT) $(RELAYBALL_HEADERS)
 	$(GCC) $(CFLAGS) $(LDFLAGS) $(RELAYBALL_FLAGS) $(RELAYBALL_SRCS) -o $@
+
+$(RELAYBALL180_ELF): $(RELAYBALL180_SRCS) $(LINKER_SCRIPT) $(RELAYBALL180_HEADERS)
+	$(GCC) $(CFLAGS) $(LDFLAGS) $(RELAYBALL180_FLAGS) $(RELAYBALL180_SRCS) -o $@
 
 $(UARTBALL16_ELF): $(UARTBALL16_SRCS) $(LINKER_SCRIPT) $(UARTBALL16_HEADERS)
 	$(GCC) $(CFLAGS) $(LDFLAGS) $(UARTBALL16_FLAGS) $(UARTBALL16_SRCS) -o $@
