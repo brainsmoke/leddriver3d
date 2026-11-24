@@ -118,7 +118,7 @@ class UartPixel:
         byte_width_in_cycles = int(cycles)*8
         lo, hi = byte_width_in_cycles&0xff, (byte_width_in_cycles>>8)&0xff
         self.reset()
-        self.queue.push(bytes( (lo,hi,0xff,0xff,0xff,0xf3) ) )
+        self.queue.push(bytes( (lo,hi,0xff,0xff,0xff,0xf2) ) )
 
     def write(self):
         self.writefrom(self.buf)
@@ -139,6 +139,9 @@ class UartPixel:
     def writeraw16(self, buf16):
         cball.framebuffer_remap(self.framebuffer, buf16, self.remap, self.led_order)
         self.queue.push(self.outbuf)
+
+    def set_route(self, buf):
+        self.queue.push(bytes(buf)+b'\xff\xff\xff\xf3')
 
     @micropython.native
     def mono_remap(self, dst, src, remap):

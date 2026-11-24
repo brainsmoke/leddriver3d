@@ -15,6 +15,7 @@ def get_animations():
         ("Moire", Gradient, {'map_file':'moire.json'}),
     )
 
-def get_config_animation():
-    return ("Configuration", Gradient, {'map_file':'gradient.json'})
+def get_config_animations():
+    import admin
+    return ( ("Configuration", admin.ConfigAnimation, {'animation'=Gradient, 'map_file':'gradient.json'}), )
 

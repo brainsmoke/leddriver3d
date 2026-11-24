@@ -23,6 +23,7 @@ def get_animations():
         ("AlienPlanet", AlienPlanet, {})
     )
 
-def get_config_animation():
-    return ("Configuration", ConfigMode, {})
+def get_config_animations():
+    import admin
+    return ( ("Configuration", admin.ConfigAnimation, {}), )
 

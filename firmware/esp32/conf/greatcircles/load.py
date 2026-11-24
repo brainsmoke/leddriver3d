@@ -25,6 +25,7 @@ def get_animations():
         ("Chroma", Chroma, {})
     )
 
-def get_config_animation():
-    return ("Configuration", ConfigMode, {})
+def get_config_animations():
+    import admin, ani.route_test
+    return ( ("Configuration", admin.ConfigAnimation, {}), ("RouteTest", ani.route_test.RouteTest, {}) )
 

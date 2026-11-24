@@ -20,6 +20,7 @@ def get_animations():
         ("Chroma", Chroma, {})
     )
 
-def get_config_animation():
-    return ("Configuration", ConfigMode, {})
+def get_config_animations():
+    import admin
+    return ( ("Configuration", admin.ConfigAnimation, {}), )
 

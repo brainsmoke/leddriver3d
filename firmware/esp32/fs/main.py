@@ -2,7 +2,7 @@
 import machine, utime, gc, re
 
 import config, model, uartpixel, cball, configform, csrf, wifi
-from conf.load import get_animations, get_config_animation
+from conf.load import get_animations, get_config_animations
 
 import esp
 #esp.osdebug(None)
@@ -65,7 +65,7 @@ tmp16 = driver.create_framebuffer16()
 
 player.start()
 
-for caption, Ani, settings in get_animations():
+def load_animation(caption, Ani, settings, buttons=False):
     name = caption.lower()
     try:
         print (caption)
@@ -73,9 +73,19 @@ for caption, Ani, settings in get_animations():
     except KeyboardInterrupt as err:
         raise err
     except Exception as err:
-        print ("failed loading {}: {}".format(caption, err))
+        from sys import print_exception
+        print ("Failed loading {}".format(caption))
+        print_exception(err)
     if player.is_off():
         player.on()
+
+    if buttons:
+        form.add_action(name, lambda: player.select(name), lambda: player.get_selected() != name, caption=caption )
+        form.move_before(name, 'ani')
+
+
+for caption, Ani, settings in get_animations():
+    load_animation(caption, Ani, settings)
 
 debug=False
 def gc_test():
@@ -154,13 +164,11 @@ try:
     csrf.invalidate_tokens()
     info = wifi.info()
     wifi.disconnect()
-    caption, Ani, settings = get_config_animation()
-    name = caption.lower()
-    player.add_animation( name, Ani( leds, tmpfloat=tmpfloat, tmp16=tmp16, config=None, **settings) )
-    form.add_action('config', lambda: player.select(name), lambda: player.get_selected() != name, caption="Configuration" )
-    form.move_before('config', 'ani')
-    import admin
-    admin.get_form(info, form=cur_animation.add_group(name, caption=caption))
+    for caption, Ani, settings in get_config_animations():
+        settings['network_info'] = info
+        settings['driver'] = driver
+        load_animation(caption, Ani, settings, buttons=True)
+
     wifi.connect_ap(wait=True)
     wait_for_interrupt()
 finally:

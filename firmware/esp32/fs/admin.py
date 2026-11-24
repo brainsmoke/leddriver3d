@@ -150,16 +150,21 @@ class FailsafeConf(configform.ConfigFormElem):
             config.write_failsafe_conf(essid, password, ip, auto_fallback)
             self._update_content()
 
-def get_form( network_info, form=None ):
-    if form == None:
-        form = configform.ConfigRoot("/")
-    form['network'] = NetworkConf("Network", network_info)
-    form['failsafe'] = FailsafeConf("Failsafe Network")
+from ani.gradient import ConfigMode
+class ConfigAnimation:
 
-    def reset():
-        wifi.disconnect()
-        machine.reset()
+    def __init__(self, leds, config=None,animation=ConfigMode, network_info=None, **kwargs):
+        self.ani = animation(leds, None, **kwargs)
 
-    form['reset'] = configform.Action(reset, lambda: True, 'reset')
-    return form
+        config['network'] = NetworkConf("Network", network_info)
+        config['failsafe'] = FailsafeConf("Failsafe Network")
+
+        def reset():
+            wifi.disconnect()
+            machine.reset()
+
+        config['reset'] = configform.Action(reset, lambda: True, 'reset')
+
+    def next_frame(self, fbuf):
+        self.ani.next_frame(fbuf)
 
